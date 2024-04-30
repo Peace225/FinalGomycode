@@ -4,6 +4,7 @@ import React from 'react';
 import Image from '../assets/img/houses/banier-house.jpg'
 
 import Search from './Search';
+import Button from './Button';
 
 const Banner = () => {
   return <section className='h-full max-h-[640px] mb-8 xl:mb-24'>
@@ -25,6 +26,7 @@ const Banner = () => {
 
         </div>
      </div>
+     <Button/>
      <Search/>
     </section>;
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { BiUser } from 'react-icons/bi';
 import { AiOutlineUnlock } from "react-icons/ai";
@@ -7,7 +7,7 @@ import { AiFillProfile } from "react-icons/ai";
 import { FaPhone } from "react-icons/fa";
 import { MdMail } from "react-icons/md";
 import Image from "../assets/Login.jpg"
-
+import { useDropzone } from 'react-dropzone';
 
 
 const Ajouter = () => {
@@ -21,7 +21,64 @@ const Ajouter = () => {
  function handleSelect(event){
     setvalue(event.target.value)
  }
+//ajouter image
 
+    const [image, setImage] = useState(null);
+  
+    const onDrop = acceptedFiles => {
+      const file = acceptedFiles[0];
+      const reader = new FileReader();
+  
+      reader.onload = () => {
+        const imageDataUrl = reader.result;
+        setImage(imageDataUrl);
+      };
+  
+      reader.readAsDataURL(file);
+    };
+  
+const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+  
+//fin input image
+
+// const [Images, setImages] = useState([]);
+// const [isDragging, setIsDragging] = useState(false);
+// const fileInputRef = useRef(null);
+
+// function selectFiles(){
+//     fileInputRef.current.click();
+// }
+// function onFileSelect(event){
+//     const files = event.target.files;
+//     if(files.length === 0) return;
+//     for (let i = 0; i< files.length; i++){
+//         if(files[i].type.split('/')[0] |='image') continue;
+//         if(!Images.some((e)=> e.name === files[i].name)){
+//             setImages((prevImages) => [
+//                 ...prevImages,
+//                 {
+//                     name:files[i].name,
+//                     url:URL.createObjectURL(files[i]),
+//                 },
+//             ]);
+//         }
+//     }
+// }
+// function deleteImage(index){
+//     setImages((prevImages) => 
+//         prevImages.filter((i) =>  index)
+//     );
+// }
+// function onDragOver(event){
+//     event.preventDefault();
+//     setIsDragging(true);
+//     event.dataTransfer.dropEffect = "copy";
+// }
+// function onDragLeave(event){
+//     event.preventDefault();
+//     setIsDragging(false);
+// }
+//   
   // const [isOpen, setIsOpen] = useState(false)
   
   return (
@@ -39,6 +96,56 @@ const Ajouter = () => {
                   </select>
                 </div>
               </div>
+                {/* input ajouter l'image */}
+                <div className="max-w-md mx-auto p-10 bg-white rounded-md shadow-md">
+                    <div {...getRootProps()} className="dropzone">
+                        <input {...getInputProps()} />
+                        {isDragActive ? (
+                        <p className="text-center text-violet-700">Déposez le fichier ici ...</p>
+                        ) : (
+                        <p className="text-center text-violet-700">Glissez-déposez une image ici ou cliquez pour sélectionner</p>
+                        )}
+                    </div>
+                        {image && (
+                            <div className="mt-4">
+                            <h2 className="text-center bg-violet-700 text-white font-semibold">Image téléchargée :</h2>
+                            <img src={image} alt="Uploaded" className="mt-2 max-w-full h-auto" />
+                    </div>
+                        )}
+                </div>
+              {/* <div className='card'>
+                    <div className='top'>
+                        <p>image</p>
+                    </div> */}
+                    {/* <div className='drag-area' onDragOver={onDragOver} onDragLeave={onDragLeave}>
+                        (isDragging ? (
+                            <span className='select'>
+                            drop images here 
+                            </span>
+                        ):(
+                            <>
+                            drag & drop image here or {" "}
+                            <span className='select' role='button' onClick={selectFiles}>
+                                Browse
+                            </span>
+                            </>
+                        ))
+                        
+                        
+                        <input name='file' type='file' className='file' multiple ref={fileInputRef} onChange={onFileSelect}></input>
+                    </div> */}
+                    {/* <div className='container'>
+                        {/* (images.map((images, index) => (
+                            <div className='image' key={index}>
+                            <span className='delete' onClick={() => deleteImage(index)}>&times;</span>
+                        </div>
+                        <img src={Images.url} alt={Images.name} />
+                        ))) */}
+                        
+                    {/* </div>  */}
+                    {/* <button type='button'> Upload</button>
+                </div> */}
+
 
             <div className='relative my-4'> 
             <h4 className='text-violet-700 text-base font-bold'>Lieu</h4>

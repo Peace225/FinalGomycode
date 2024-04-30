@@ -22,6 +22,8 @@ const PropertyDetails = () => {
   });
 
   return (
+
+    //FORMULAIRE
     <section>
       <div className='container mx-auto min-h-[800px]
       mb-14'>
@@ -85,7 +87,7 @@ const PropertyDetails = () => {
                 </Link>
               </div>
             </div>
-            {/* form */}
+            {/* formulaire  */}
             <form className='flex flex-col gap-y-4'>
               <input 
                 className='border
