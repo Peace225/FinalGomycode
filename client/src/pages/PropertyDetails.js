@@ -75,16 +75,16 @@ const PropertyDetails = () => {
           <div className='flex-1 bg-white-100 w-full
           mb-8 border border-gray-300 rounded-lg px-3 py-8 '>
             <div className='flex items-center gap-x-4 mb-8'>
-              <div className='w-20 h-20 p-1 border
+              {/* <div className='w-20 h-20 p-1 border
               border-gray-300 rounded-full'>
                 <img src={house.agent.image} alt='' />
-              </div>
+              </div> */}
               <div>
-                <div className='font-bold text-lg'>{house.agent.name}</div>
-                <Link to='' className='text-violet-700
+                <div className='w-50 flex justify-center items-center font-bold text-3xl'>Souscrire à l'offre</div>
+                {/* <Link to='' className='text-violet-700
                 text-sm'>
                   Voir les Annonces
-                </Link>
+                </Link> */}
               </div>
             </div>
             {/* formulaire  */}
