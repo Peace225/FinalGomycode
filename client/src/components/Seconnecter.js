@@ -35,8 +35,8 @@ const Seconnecter = () => {
 
   return (
     <div className='text-white h-[100vh] flex justify-center items-center bg-cover' style={{'backgroundImage':"url('../src/assets/Login.jpg')"}}>
-      <div className='bg-violet-800 border border-black-500 rounded-md p-8 shadow-lg backdrop-filter backdrop-blur-sm bg-opacity-30 relative '>
-        <h1 className='text-4xl text-violet-700 font-bold text-center mb-6'>Se connecter</h1>
+      <div className='bg-[#00C040] border border-black-500 rounded-md p-8 shadow-lg backdrop-filter backdrop-blur-sm bg-opacity-30 relative '>
+        <h1 className='text-4xl text-[#00008B] font-bold text-center mb-6'>Se connecter</h1>
        <form action=''>
             <div className='relative my-4'>
             <input
@@ -64,10 +64,10 @@ const Seconnecter = () => {
                 <input type='checkbox' name='' id=''/>
                 <label htmlFor='Souviens-toi de moi'>Souviens-toi de moi</label>
               </div>
-              <span className='text-blue-500'>Mot de Passe oublié?</span>
+              <span className='text-[#00C040]'>Mot de Passe oublié?</span>
             </div>
-            <button className='w-full mb-4 text-[18px] mt-6 rounded-full bg-white text-violet-700 hover:bg-violet-800 hover:text-white py-2 transition-colors duration-300' type='submit'>Se connecter</button>
-            <span className='m-4'>New Here? <Link className='text-blue-500' to='/sinscrire'>Create an Account</Link></span>
+            <button className='w-full mb-4 text-[18px] mt-6 rounded-full bg-white text-[#00008B] hover:bg-[#00008B] hover:text-white py-2 transition-colors duration-300' type='submit'>Se connecter</button>
+            <span className='m-4'>New Here? <Link className='text-[#00C040]' to='/sinscrire'>Create an Account</Link></span>
        </form>
         
       </div>

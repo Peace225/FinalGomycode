@@ -9,9 +9,9 @@ import { Menu } from '@headlessui/react';
 import {HouseContext} from './HouseContext';
 
 const CountryDropdown =() => {
-  const {country, setCountry, countries} = useContext(HouseContext)
+  const {country, dataSelected, setDataSelected, setCountry, countries} = useContext(HouseContext)
   const [isOpen, setIsOpen] = useState(false);
-
+  console.log('countries',countries)
 
   return (
     <Menu as='div' className='dropdown relative'>
@@ -37,11 +37,10 @@ const CountryDropdown =() => {
         {countries.map((country, index) => {
           return(
             <Menu.Item
-            onClick={() => setCountry(country)} 
-            className='cursor-pointer hover:text-violet-700 transition' as='li' 
+            onClick={() => {setCountry(country); setDataSelected({...dataSelected, country : country});  console.log("country selected in CountryDropDown", country)}} 
+            className='cursor-pointer hover:text-[#00C040] transition' as='li' 
             key={index}>
               {country}
-
             </Menu.Item>
           )
         } )}

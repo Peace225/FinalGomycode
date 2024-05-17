@@ -9,12 +9,12 @@ import { Menu } from '@headlessui/react';
 import {HouseContext} from './HouseContext';
 
 const PriceRangeDropdown =() => {
-  const {price, setPrice, } = useContext(HouseContext)
+  const {price, setPrice, minPrice, setMinPrice, maxPrice, setMaxPrice, dataSelected, setDataSelected } = useContext(HouseContext)
   const [isOpen, setIsOpen] = useState(false);
 
-  const prices = [
+   const prices = [
     {
-      value: ' Gamme de prix quelconque',
+      value: 'Tous les prix',
     },
     {
       value: '100000 - 130000',
@@ -32,6 +32,7 @@ const PriceRangeDropdown =() => {
       value: '300000 - 400000',
     },
   ]
+
   return (
     <Menu as='div' className='dropdown relative'>
      <Menu.Button onClick={() => setIsOpen (! isOpen)} 
@@ -56,11 +57,13 @@ const PriceRangeDropdown =() => {
         {prices.map((price, index) => {
           return(
             <Menu.Item
-            onClick={() => setPrice(price.value)} 
+            onClick={() => {setPrice(price.value); 
+              setMinPrice(parseInt((price.value).split(' ')[0])); 
+              setMaxPrice(parseInt((price.value).split(' ')[2]));  
+              setDataSelected({...dataSelected, price : price.value, minPrice : (parseInt((price.value).split(' ')[0])), maxPrice : (parseInt((price.value).split(' ')[2])) })}} 
             className='cursor-pointer hover:text-violet-700 transition' as='li' 
             key={index}>
               {price.value}
-
             </Menu.Item>
           )
         } )}
@@ -69,4 +72,5 @@ const PriceRangeDropdown =() => {
   )
 }
 
-export default PriceRangeDropdown
+
+export {PriceRangeDropdown}

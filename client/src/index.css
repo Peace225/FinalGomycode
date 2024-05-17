@@ -13,10 +13,10 @@
     @apply flex h-[64px] items-center px-[18px] border rounded-lg;
   }
   .dropdown-icon-primary {
-    @apply text-2xl mr-[18px] text-violet-700;
+    @apply text-2xl mr-[18px] text-[#00C040];
   }
   .dropdown-icon-secondary {
-    @apply text-2xl text-violet-700 ml-auto;
+    @apply text-2xl text-[#00C040] ml-auto;
   }
   .dropdown-menu {
     @apply px-6 py-8 text-[15px] space-y-6 shadow-md bg-white absolute w-full z-10 list-none rounded-b-lg;
@@ -36,7 +36,7 @@
 
 .card p{
   font-weight: bold;
-  color: blueviolet;
+  color: [#00008B];
 }
 
 .card button{
@@ -48,7 +48,7 @@
   font-weight: 400;
   padding: 8px 13px;
   width: 100%;
-  background: blueviolet ;
+  background: [#00008B];
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,7 +61,7 @@
   font-size: 18px;
 }
 .card .select{
-  color: #5256ab;
+  color: [#00008B];
   margin-left: 5px;
   cursor: pointer;
   transition: 0.4s;
@@ -111,5 +111,5 @@
 
 .delete{
   z-index: 999;
-  color: #5256ab;
+  color: [#00008B];
 }
